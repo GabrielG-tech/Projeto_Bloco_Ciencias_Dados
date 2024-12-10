@@ -1,6 +1,11 @@
 from collections import deque
+import re
 from memory_profiler import memory_usage
 import time
+
+# Função para extrair números de uma string
+def extrair_num(file_name):
+    return [int(num) for num in re.findall(r'\d+', file_name)]
 
 # Lendo o arquivo de listagem
 with open("listagem_arquivos.txt", "r") as arquivo:

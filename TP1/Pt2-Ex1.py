@@ -2,14 +2,14 @@ import time
 import re
 
 # Função para extrair números de uma string
-def extrair_num(file_name):
+def extract_number(file_name):
     return [int(num) for num in re.findall(r'\d+', file_name)]
 
 def bubble_sort(data):
     n = len(data)
     for i in range(n):
         for j in range(0, n - i - 1):
-            if extrair_num(data[j]) > extrair_num(data[j + 1]):
+            if extract_number(data[j]) > extract_number(data[j + 1]):
                 data[j], data[j + 1] = data[j + 1], data[j]
 
 def selection_sort(data):
@@ -17,7 +17,7 @@ def selection_sort(data):
     for i in range(n):
         min_idx = i
         for j in range(i + 1, n):
-            if extrair_num(data[j]) < extrair_num(data[min_idx]):
+            if extract_number(data[j]) < extract_number(data[min_idx]):
                 min_idx = j
         data[i], data[min_idx] = data[min_idx], data[i]
 
@@ -25,7 +25,7 @@ def insertion_sort(data):
     for i in range(1, len(data)):
         key = data[i]
         j = i - 1
-        while j >= 0 and extrair_num(key) < extrair_num(data[j]):
+        while j >= 0 and extract_number(key) < extract_number(data[j]):
             data[j + 1] = data[j]
             j -= 1
         data[j + 1] = key
